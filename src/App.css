@@ -1,3 +1,16 @@
+.item-img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+.main-bg {
+  height: 300px;
+  background-image: url('../public/main.jpg');
+  background-size: cover;
+  background-position: center;
+
+}
+
 .App {
   text-align: center;
 }
