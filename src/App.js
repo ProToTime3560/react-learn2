@@ -20,20 +20,24 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
             <Nav.Link onClick={() => { navigate('/detail/0') }}>Detail</Nav.Link>
+            <Nav.Link onClick={() => { navigate('/Event/one') }}>Event</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
-      <Button onClick={() => {
-        let newArray = [...item];
-        newArray.sort((a, b) =>
-          a.title.localeCompare(b.title));
-        setitem(newArray);
-      }}>상품정렬</Button>
+
       <Routes>
         <Route path="/" element={
           <>
             <div className="main-bg"></div>
+
+               <Button onClick={() => {
+                  let newArray = [...item];
+                  newArray.sort((a, b) =>
+                  a.title.localeCompare(b.title));
+                  setitem(newArray);
+                }}>상품정렬</Button>
+
             <div className="container">
               <div className="row">
                 {
