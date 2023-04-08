@@ -6,7 +6,7 @@ import {
   Nav,
   useAccordionButton,
 } from "react-bootstrap";
-import "./App.module.css";
+import "./App.css";
 import { data, Card } from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./routes/Detailpage.js";
@@ -74,6 +74,30 @@ function App() {
                   })}
                 </div>
               </div>
+              <button
+                onClick={() => {
+                  setAddCount(addcount + 1);
+
+                  let url =
+                    "https://codingapple1.github.io/shop/data" +
+                    addcount +
+                    ".json";
+                  axios
+                    .get(url)
+                    .then((결과) => {
+                      console.log(결과.data);
+                      let newArray = [...item, ...결과.data];
+                      setitem(newArray);
+                      console.log(item);
+                    })
+                    .catch(() => {
+                      console.log("결과.data");
+                      window.alert("상품이 더 없습니다!");
+                    });
+                }}
+              >
+                버튼
+              </button>
             </>
           }
         />
@@ -91,29 +115,6 @@ function App() {
           <Route path="two" element={<div>생일기념 쿠폰받기</div>}></Route>
         </Route>
       </Routes>
-
-      <button
-        onClick={() => {
-          setAddCount(addcount + 1);
-
-          let url =
-            "https://codingapple1.github.io/shop/data" + addcount + ".json";
-          axios
-            .get(url)
-            .then((결과) => {
-              console.log(결과.data);
-              let newArray = [...item, ...결과.data];
-              setitem(newArray);
-              console.log(item);
-            })
-            .catch(() => {
-              console.log("결과.data");
-              window.alert("상품이 더 없습니다!");
-            });
-        }}
-      >
-        버튼
-      </button>
     </div>
   );
 }
