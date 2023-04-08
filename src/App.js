@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Navbar, Container, Nav, useAccordionButton } from 'react-bootstrap';
-import './App.css';
+import './App.module.css';
 import { data, Card } from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
 import Detail from './routes/Detailpage.js'
